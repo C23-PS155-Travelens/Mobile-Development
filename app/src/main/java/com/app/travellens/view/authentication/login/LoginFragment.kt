@@ -53,9 +53,10 @@ class LoginFragment : Fragment() {
 //                        Log.d("Data Phone", "onViewCreated: ${it.data.phone}")
 //                        Log.d("Data Photo", "onViewCreated: ${it.data.photo}")
 //                        Log.d("Data Username", "onViewCreated: ${it.data.username}")
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                         saveSession(it.data.id.toString(), it.data.username, it.data.email, it.data.photo, it.data.address, it.data.phone)
                         Toast.makeText(context,"Login berhasil!",Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+
                     }else{
                         Toast.makeText(context,"Username atau password salah",Toast.LENGTH_SHORT).show()
                     }
