@@ -25,6 +25,7 @@ import com.app.travellens.databinding.FragmentMainBinding
 import com.app.travellens.model.response.ResponsePredict
 import com.app.travellens.network.ApiClient
 import com.app.travellens.viewmodel.ViewModelApps
+import com.bumptech.glide.Glide
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -157,6 +158,7 @@ class MainFragment : Fragment() {
             viewModel.postImage().observe(viewLifecycleOwner) {
                 if (it != null) {
                     Log.d("TAG", "uploadImage: ${it.predictedLabel}")
+                    binding.txtNamaWisata.text = it.predictedLabel.toString()
                 } else {
                     Log.d("TAG", "uploadImage: ${it?.predictedLabel}")
                 }

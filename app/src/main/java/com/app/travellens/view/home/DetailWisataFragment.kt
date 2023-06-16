@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.app.travellens.R
 import com.app.travellens.databinding.FragmentDetailWisataBinding
+import com.example.navigasidanapi.room.FavDatabase
 
 class DetailWisataFragment : Fragment() {
     lateinit var binding : FragmentDetailWisataBinding
@@ -31,6 +32,7 @@ class DetailWisataFragment : Fragment() {
         binding.namaTempat.text = nama
         binding.namaLokasi.text = alamat
         binding.deskripsiWisata.text = deskripsi
+
 
     }
 }

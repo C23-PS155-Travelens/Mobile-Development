@@ -13,11 +13,6 @@
         android:icon="@drawable/baseline_photo_camera_24" />
 
 
-    <item
-        android:id="@+id/wishListFragment"
-        android:icon="@drawable/baseline_love_24"
-        android:orderInCategory="100"
-        android:title="Wishlist" />
 
     <item
         android:id="@+id/profileFragment2"

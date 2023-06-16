@@ -1,75 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.camera.MainFragment">
 
-    <Button
-        android:id="@+id/cameraXButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:elevation="2dp"
-        android:scaleType="fitCenter"
-        android:text="Camera X"
-        app:layout_constraintBottom_toBottomOf="@+id/cameraButton"
-        app:layout_constraintEnd_toStartOf="@+id/cameraButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cameraButton" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/previewImageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/cameraButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_place_holder" />
+        <ImageView
+            android:id="@+id/previewImageView"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_place_holder" />
 
-    <Button
-        android:id="@+id/cameraButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Camera"
-        app:layout_constraintBottom_toTopOf="@+id/uploadButton"
-        app:layout_constraintEnd_toStartOf="@+id/galleryButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cameraXButton" />
+        <TextView
+            android:id="@+id/txtNamaWisata"
+            android:layout_below="@id/previewImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="28dp"
+            android:text="Nama Wisata"
+            android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/galleryButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="Galery"
-        app:layout_constraintBottom_toBottomOf="@+id/cameraButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cameraButton"
-        app:layout_constraintTop_toTopOf="@+id/cameraButton" />
+        <Button
+            android:id="@+id/cameraButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@color/blue"
+            android:drawableStart="@drawable/ic_switch_camera"
+            android:layout_marginStart="50dp"
+            android:text="Camera" />
 
-    <Button
-        android:id="@+id/uploadButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Upload"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/galleryButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Galery"
+            android:backgroundTint="@color/blue"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/uploadButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="230dp"
+            android:layout_marginEnd="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/baseline_save_24" />
+
+    </RelativeLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
