@@ -5,11 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.app.travellens.R
 import com.app.travellens.databinding.FragmentProfileBinding
 import com.app.travellens.datastore.SharedPref
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
     lateinit var binding : FragmentProfileBinding
@@ -44,9 +49,21 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        binding.btnLogout.setOnClickListener{
+            removeToken()
+            Toast.makeText(context, "Berhasil Logout!", Toast.LENGTH_SHORT).show()
+        }
+
 
         binding.navigateToProfile.setOnClickListener{
             findNavController().navigate(R.id.action_profileFragment2_to_editProfileFragment)
+        }
+    }
+
+
+    private fun removeToken() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            sharedPref.removeSession()
         }
     }
 }

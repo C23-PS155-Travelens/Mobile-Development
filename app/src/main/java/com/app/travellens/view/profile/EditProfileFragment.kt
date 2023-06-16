@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.app.travellens.R
 import com.app.travellens.databinding.FragmentEditProfileBinding
 import com.app.travellens.datastore.SharedPref
@@ -37,7 +38,6 @@ class EditProfileFragment : Fragment() {
         sharedPref = SharedPref(requireContext())
         viewModel = ViewModelProvider(this)[ViewModelApps::class.java]
 
-
         binding.btnUbahData.setOnClickListener{
             val nama = binding.editTextNama.text.toString()
             val email = binding.editTextEmail.text.toString()
@@ -50,6 +50,7 @@ class EditProfileFragment : Fragment() {
                 if (it != null){
                     saveSession(it.username, it.email, it.photo, it.address, it.phone)
                     Toast.makeText(context, "Berhasil Update Profile!", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment2)
                 }else{
                     Toast.makeText(context, "Gagal Update Profile!", Toast.LENGTH_SHORT).show()
                 }
@@ -61,6 +62,10 @@ class EditProfileFragment : Fragment() {
                     Log.d("id", it.toString())
                 }
             }
+        }
+
+        binding.btnBack.setOnClickListener{
+            findNavController().navigateUp()
         }
 
 

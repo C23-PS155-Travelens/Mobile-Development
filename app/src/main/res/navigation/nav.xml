@@ -92,7 +92,11 @@
         android:id="@+id/editProfileFragment"
         android:name="com.app.travellens.view.profile.EditProfileFragment"
         android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/detailWisataFragment"
         android:name="com.app.travellens.view.home.DetailWisataFragment"
