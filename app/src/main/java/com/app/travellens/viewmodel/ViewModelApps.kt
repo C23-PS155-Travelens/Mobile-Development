@@ -9,6 +9,7 @@ import com.app.travellens.model.request.Register
 import com.app.travellens.model.request.UpdateProfile
 import com.app.travellens.model.response.ResponsePredict
 import com.app.travellens.model.response.ResponseRegister
+import com.app.travellens.model.response.ResponseUpdateProfileImage
 import com.app.travellens.model.response.ResponseUserLogin
 import com.app.travellens.model.response.ResponseUsrUpdateProfile
 import com.app.travellens.network.ApiClient
@@ -23,6 +24,7 @@ class ViewModelApps : ViewModel() {
     private val postImage = MutableLiveData<ResponsePredict?>()
     private val getDataWisata = MutableLiveData<List<ResponseGetWisataItem>?>()
     private val updateProfile = MutableLiveData<ResponseUsrUpdateProfile?>()
+    private val updateProfileImage = MutableLiveData<ResponseUpdateProfileImage?>()
 
     fun userLogin() : MutableLiveData<ResponseUserLogin?>{
         return userLogin
@@ -42,6 +44,10 @@ class ViewModelApps : ViewModel() {
 
     fun updateProfile() : MutableLiveData<ResponseUsrUpdateProfile?> {
         return updateProfile
+    }
+
+    fun updateProfileImage() : MutableLiveData<ResponseUpdateProfileImage?> {
+        return updateProfileImage
     }
 
     fun login(username : String, password : String){
@@ -152,5 +158,30 @@ class ViewModelApps : ViewModel() {
                 updateProfile.postValue(null)
             }
         })
+    }
+
+    fun ubahGambar(image : MultipartBody.Part){
+        ApiClient.instance1.editPhoto(image).enqueue(object : Callback<ResponseUpdateProfileImage> {
+            override fun onResponse(
+                call: Call<ResponseUpdateProfileImage>,
+                response: Response<ResponseUpdateProfileImage>
+            ) {
+                Log.d("Is Sucess", "onResponse: ${response.isSuccessful}")
+                Log.d("Message", "onResponse: ${response.message()}")
+                Log.d("Error Body", "onResponse: ${response.errorBody()?.string()}")
+
+                if (response.isSuccessful) {
+                    updateProfileImage.postValue(response.body())
+                } else {
+                    updateProfileImage.postValue(null)
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseUpdateProfileImage>, t: Throwable) {
+                updateProfileImage.postValue(null)
+                Log.d("TAG", "onFailure: ${t.message}")
+            }
+        })
+
     }
 }

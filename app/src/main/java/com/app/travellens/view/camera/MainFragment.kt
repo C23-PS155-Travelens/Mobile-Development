@@ -72,7 +72,9 @@ class MainFragment : Fragment() {
             )
         }
         binding.cameraButton.setOnClickListener { startTakePhoto() }
-        binding.galleryButton.setOnClickListener { startGallery() }
+        binding.galleryButton.setOnClickListener {
+            startGallery()
+        }
         binding.uploadButton.setOnClickListener {
             uploadImage()
         }
@@ -158,7 +160,8 @@ class MainFragment : Fragment() {
             viewModel.postImage().observe(viewLifecycleOwner) {
                 if (it != null) {
                     Log.d("TAG", "uploadImage: ${it.predictedLabel}")
-                    binding.txtNamaWisata.text = it.predictedLabel.toString()
+                    binding.txtNamaWisata.text = it.predictedLabel
+                    Toast.makeText(requireContext(), it.predictedLabel, Toast.LENGTH_SHORT).show()
                 } else {
                     Log.d("TAG", "uploadImage: ${it?.predictedLabel}")
                 }
