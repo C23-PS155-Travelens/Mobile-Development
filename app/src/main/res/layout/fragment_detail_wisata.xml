@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_location_on_24"
                     android:layout_marginStart="14dp"
-                    android:layout_below="@id/floatingActionButton"
+                    android:layout_below="@id/namaTempat"
                     android:layout_marginTop="10dp"
 
                     />
@@ -103,7 +103,7 @@
                     android:textColor="#37474F"
                     android:textSize="14sp"
                     android:layout_marginStart="14dp"
-                    android:layout_below="@id/floatingActionButton"
+                    android:layout_below="@id/namaTempat"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="14dp"
                     android:layout_toEndOf="@id/location"
@@ -122,23 +122,7 @@
                     android:layout_below="@id/namaLokasi"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="14dp"
-
-
-
                     />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingActionButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginTop="280dp"
-                    android:clickable="true"
-                    android:src="@drawable/baseline_love_24_outline"
-                    app:backgroundTint="@color/blue" />
-
 
             </RelativeLayout>
 

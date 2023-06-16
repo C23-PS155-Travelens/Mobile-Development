@@ -1,13 +1,11 @@
 package com.app.travellens.view.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.app.travellens.R
+import androidx.fragment.app.Fragment
 import com.app.travellens.databinding.FragmentDetailWisataBinding
-import com.example.navigasidanapi.room.FavDatabase
 
 class DetailWisataFragment : Fragment() {
     lateinit var binding : FragmentDetailWisataBinding
